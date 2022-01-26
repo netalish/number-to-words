@@ -42,10 +42,13 @@ function test(n, should) {
 }
 
 function number2words(n) {
-  if (n.length > 9) return `Number too long`;
   if (n < 0) {
+    if (n.length - 1 > 9) {
+      return `Number too long`;
+    }
     return "minus " + number2words(Math.abs(n));
   }
+  if (n.length > 9) return `Number too long`;
 
   if (n < 20) return LESS_THAN_TWENTY[n];
   let digit = n % 10;

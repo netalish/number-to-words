@@ -1,15 +1,10 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
-import number2words from "./Utils";
+import React from "react";
+import useNumber from "./useNumber";
 
 function App() {
-  const [number, setNumber] = useState("");
-  const [numberInWords, setNumberInWords] = useState("");
+  const { numberInWords, setNumber } = useNumber();
 
-  useEffect(() => {
-    const words = number2words(number);
-    setNumberInWords(words);
-  }, [number]);
   return (
     <div className="App">
       <input
